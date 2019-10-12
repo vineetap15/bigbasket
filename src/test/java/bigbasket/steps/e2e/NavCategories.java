@@ -1,13 +1,18 @@
 package bigbasket.steps.e2e;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import bigbasket.pages.CategoryNav;
 import bigbasket.utils.Util;
+import bigbasket.utils.checkNavCategories;
+import io.cucumber.datatable.DataTable;
+import io.cucumber.datatable.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -29,164 +34,165 @@ public class NavCategories extends Util {
 
     @Then("User should view all the main categories")
     public void user_should_view_all_the_main_categories(List<String> list) {
-        List<String> mainCategoriesList = new ArrayList<String>();
-        mainCategoriesList = list;
-        System.out.println("sub cat----- " + nav.fruitsAndVegetableCategory.getText());
-        System.out.println("sub cat----- " + nav.foodGrainsOilCategory.getText());
-        System.out.println("sub cat----- " + nav.bakeryCakesAndDairyCategory.getText());
-        System.out.println("sub cat----- " + nav.beveragesCategory.getText());
-        System.out.println("sub cat----- " + nav.snacksAndBrandedFoodsCategory.getText());
-        System.out.println("sub cat----- " + nav.beautyAndHygieneCategory.getText());
-        System.out.println("sub cat----- " + nav.cleaningAndHouseholdCategory.getText());
-        System.out.println("sub cat----- " + nav.kitchenGardenAndPetsCategory.getText());
-        System.out.println("sub cat----- " + nav.eggsMeatAndFishCategory.getText());
-        System.out.println("sub cat----- " + nav.gourmetAndWorldFoodCategory.getText());
-        System.out.println("sub cat----- " + nav.viewAll.getText());
-        Assert.assertTrue(nav.fruitsAndVegetableCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(0), nav.fruitsAndVegetableCategory.getText());
+        ArrayList<WebElement> elements = new ArrayList<>();
+        elements.add(nav.fruitsAndVegetableCategory);
+        elements.add(nav.foodGrainsOilCategory);
+        elements.add(nav.bakeryCakesAndDairyCategory);
+        elements.add(nav.beveragesCategory);
+        elements.add(nav.snacksAndBrandedFoodsCategory);
+        elements.add(nav.beautyAndHygieneCategory);
+        elements.add(nav.cleaningAndHouseholdCategory);
+        elements.add(nav.kitchenGardenAndPetsCategory);
+        elements.add(nav.eggsMeatAndFishCategory);
+        elements.add(nav.gourmetAndWorldFoodCategory);
 
-        Assert.assertTrue(nav.foodGrainsOilCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(1), nav.foodGrainsOilCategory.getText());
-
-        Assert.assertTrue(nav.bakeryCakesAndDairyCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(2), nav.bakeryCakesAndDairyCategory.getText());
-
-        Assert.assertTrue(nav.beveragesCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(3), nav.beveragesCategory.getText());
-
-        Assert.assertTrue(nav.snacksAndBrandedFoodsCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(4), nav.snacksAndBrandedFoodsCategory.getText());
-
-        Assert.assertTrue(nav.beautyAndHygieneCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(5), nav.beautyAndHygieneCategory.getText());
-
-        Assert.assertTrue(nav.cleaningAndHouseholdCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(6), nav.cleaningAndHouseholdCategory.getText());
-
-        Assert.assertTrue(nav.kitchenGardenAndPetsCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(7), nav.kitchenGardenAndPetsCategory.getText());
-
-        Assert.assertTrue(nav.eggsMeatAndFishCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(8), nav.eggsMeatAndFishCategory.getText());
-
-        Assert.assertTrue(nav.gourmetAndWorldFoodCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(9), nav.gourmetAndWorldFoodCategory.getText());
-
-        Assert.assertTrue(nav.babyCareCategory.isDisplayed());
-        Assert.assertEquals(mainCategoriesList.get(10), nav.babyCareCategory.getText());
-
-        // Assert.assertTrue(nav.viewAll.isDisplayed());
-        // Assert.assertEquals(mainCategoriesList.get(11), nav.viewAll.getText());
+        new checkNavCategories(elements);
 
     }
 
-    @Then("User should view the corresponding list of {string} under {string}")
-    public void user_should_view_the_corresponding_list_of_under_main_category(String subcategory, String category) {
-        // List<String> list = new ArrayList<String>();
-        String[] li = subcategory.split(";");
-        if (category.equals(nav.fruitsAndVegetableCategory.getText())) {
-            action.moveToElement(nav.fruitsAndVegetableCategory).build().perform();
-            System.out.println("main category--->" + category);
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.freshVegiesOption.isDisplayed());
-                Assert.assertTrue(nav.herbsAndSeasoning.isDisplayed());
-                Assert.assertTrue(nav.freshFruitsOption.isDisplayed());
-                Assert.assertTrue(nav.cutsAndSprouts.isDisplayed());
-                Assert.assertTrue(nav.exoticFruitsAndVegies.isDisplayed());
-                Assert.assertTrue(nav.organicFruitsAndVegies.isDisplayed());
-                Assert.assertTrue(nav.flowerBouquetsBunches.isDisplayed());
+    @Then("User should view the corresponding list of First_Sub_Category under main_Category")
+    public void user_should_view_the_corresponding_list_of_under_main_category(DataTable subcategory) {
+        
+        List<WebElement> subCat = subcategory.asList(WebElement.class);
+        //String[] li = subcategory.split(";");
+        //List<String> list = Arrays.asList(li);
+        
+            // ArrayList<WebElement> elements1 = new ArrayList<WebElement>();
+            // elements1.add(nav.freshVegiesOption);
+            // elements1.add(nav.herbsAndSeasoning);
+            // elements1.add(nav.freshFruitsOption);
+            // elements1.add(nav.cutsAndSprouts);
+            // elements1.add(nav.exoticFruitsAndVegies);
+            // elements1.add(nav.organicFruitsAndVegies);
+            // elements1.add(nav.flowerBouquetsBunches);
+            new checkNavCategories(nav.fruitsAndVegetableCategory, subCat, action);
 
-            }
-        } else if (category.equals(nav.foodGrainsOilCategory.getText())) {
-            action.moveToElement(nav.foodGrainsOilCategory).build().perform();
-            System.out.println("main category--->" + category);
+            // ArrayList<WebElement> elements2 = new ArrayList<WebElement>();
+            // elements2.add(nav.attaFloursAndSooji);
+            // elements2.add(nav.riceAndRiceProducts);
+            // elements2.add(nav.dalsAndPulses);
+            // elements2.add(nav.organicStaples);
+            // elements2.add(nav.saltSugarAndJaggery);
+            // elements2.add(nav.edibleOilsAndGhee);
+            // elements2.add(nav.masalasAndSpices);
+            // elements2.add(nav.dryAndFruits);
+            // new checkNavCategories(nav.foodGrainsOilCategory, elements2, action);
+        
+            // ArrayList<WebElement> elements3 = new ArrayList<WebElement>();
+            // elements3.add(nav.dairy);
+            // elements3.add(nav.breadsAndBuns);
+            // elements3.add(nav.cookiesRusksAndKhari);
+            // elements3.add(nav.GourmetBreads);
+            // elements3.add(nav.bakerySnacks);
+            // elements3.add(nav.iceCreamsAndDessert);
+            // elements3.add(nav.cakesAndPasteries);
+            // new checkNavCategories(nav.bakeryCakesAndDairyCategory, elements3, action);
+            
 
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.attaFloursAndSooji.isDisplayed());
-                Assert.assertTrue(nav.riceAndRiceProducts.isDisplayed());
-                Assert.assertTrue(nav.dalsAndPulses.isDisplayed());
-                Assert.assertTrue(nav.organicStaples.isDisplayed());
-                Assert.assertTrue(nav.saltSugarAndJaggery.isDisplayed());
-                Assert.assertTrue(nav.edibleOilsAndGhee.isDisplayed());
-                Assert.assertTrue(nav.masalasAndSpices.isDisplayed());
-                Assert.assertTrue(nav.dryAndFruits.isDisplayed());
+        
+        // if (category.equals(nav.fruitsAndVegetableCategory.getText())) {
+        //     action.moveToElement(nav.fruitsAndVegetableCategory).build().perform();
+        //     System.out.println("main category--->" + category);
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.freshVegiesOption.isDisplayed());
+        //         Assert.assertTrue(nav.herbsAndSeasoning.isDisplayed());
+        //         Assert.assertTrue(nav.freshFruitsOption.isDisplayed());
+        //         Assert.assertTrue(nav.cutsAndSprouts.isDisplayed());
+        //         Assert.assertTrue(nav.exoticFruitsAndVegies.isDisplayed());
+        //         Assert.assertTrue(nav.organicFruitsAndVegies.isDisplayed());
+        //         Assert.assertTrue(nav.flowerBouquetsBunches.isDisplayed());
 
-            }
-        }
+        //     }
+        // } else if (category.equals(nav.foodGrainsOilCategory.getText())) {
+        //     action.moveToElement(nav.foodGrainsOilCategory).build().perform();
+        //     System.out.println("main category--->" + category);
 
-        else if (category.equals(nav.bakeryCakesAndDairyCategory.getText())) {
-            action.moveToElement(nav.bakeryCakesAndDairyCategory).build().perform();
-            System.out.println("main category--->" + category);
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.attaFloursAndSooji.isDisplayed());
+        //         Assert.assertTrue(nav.riceAndRiceProducts.isDisplayed());
+        //         Assert.assertTrue(nav.dalsAndPulses.isDisplayed());
+        //         Assert.assertTrue(nav.organicStaples.isDisplayed());
+        //         Assert.assertTrue(nav.saltSugarAndJaggery.isDisplayed());
+        //         Assert.assertTrue(nav.edibleOilsAndGhee.isDisplayed());
+        //         Assert.assertTrue(nav.masalasAndSpices.isDisplayed());
+        //         Assert.assertTrue(nav.dryAndFruits.isDisplayed());
 
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.dairy.isDisplayed());
-                Assert.assertTrue(nav.breadsAndBuns.isDisplayed());
-                Assert.assertTrue(nav.cookiesRusksAndKhari.isDisplayed());
-                Assert.assertTrue(nav.GourmetBreads.isDisplayed());
-                Assert.assertTrue(nav.bakerySnacks.isDisplayed());
-                Assert.assertTrue(nav.iceCreamsAndDessert.isDisplayed());
-                Assert.assertTrue(nav.cakesAndPasteries.isDisplayed());
+        //     }
+        // }
 
-            }
-        }
+        // else if (category.equals(nav.bakeryCakesAndDairyCategory.getText())) {
+        //     action.moveToElement(nav.bakeryCakesAndDairyCategory).build().perform();
+        //     System.out.println("main category--->" + category);
 
-        else if (category.equals(nav.beveragesCategory.getText())) {
-            action.moveToElement(nav.beveragesCategory).build().perform();
-            System.out.println("main category--->" + category);
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.dairy.isDisplayed());
+        //         Assert.assertTrue(nav.breadsAndBuns.isDisplayed());
+        //         Assert.assertTrue(nav.cookiesRusksAndKhari.isDisplayed());
+        //         Assert.assertTrue(nav.GourmetBreads.isDisplayed());
+        //         Assert.assertTrue(nav.bakerySnacks.isDisplayed());
+        //         Assert.assertTrue(nav.iceCreamsAndDessert.isDisplayed());
+        //         Assert.assertTrue(nav.cakesAndPasteries.isDisplayed());
 
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.water.isDisplayed());
-                Assert.assertTrue(nav.healthDrinkSupplement.isDisplayed());
-                Assert.assertTrue(nav.tea.isDisplayed());
-                Assert.assertTrue(nav.energyAndSoftDrink.isDisplayed());
-                Assert.assertTrue(nav.coffee.isDisplayed());
-                Assert.assertTrue(nav.fruitJuicesAndDrinks.isDisplayed());
+        //     }
+        // }
 
-            }
-        }
+        // else if (category.equals(nav.beveragesCategory.getText())) {
+        //     action.moveToElement(nav.beveragesCategory).build().perform();
+        //     System.out.println("main category--->" + category);
 
-        else if (category.equals(nav.snacksAndBrandedFoodsCategory.getText())) {
-            action.moveToElement(nav.snacksAndBrandedFoodsCategory).build().perform();
-            System.out.println("main category--->" + category);
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.water.isDisplayed());
+        //         Assert.assertTrue(nav.healthDrinkSupplement.isDisplayed());
+        //         Assert.assertTrue(nav.tea.isDisplayed());
+        //         Assert.assertTrue(nav.energyAndSoftDrink.isDisplayed());
+        //         Assert.assertTrue(nav.coffee.isDisplayed());
+        //         Assert.assertTrue(nav.fruitJuicesAndDrinks.isDisplayed());
 
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.breakFastCereal.isDisplayed());
-                Assert.assertTrue(nav.noodlePastaVermicilli.isDisplayed());
-                Assert.assertTrue(nav.buiscuitsAndCookies.isDisplayed());
-                Assert.assertTrue(nav.frozenVegiesSnacks.isDisplayed());
-                Assert.assertTrue(nav.snaksAndNamkeen.isDisplayed());
-                Assert.assertTrue(nav.spreadsSaucesKetchup.isDisplayed());
-                Assert.assertTrue(nav.readyToCookAndEat.isDisplayed());
-                Assert.assertTrue(nav.chocolatesAndCandies.isDisplayed());
-                Assert.assertTrue(nav.picklesAndChutney.isDisplayed());
-                Assert.assertTrue(nav.indianMithai.isDisplayed());
+        //     }
+        // }
 
-            }
-        }
+        // else if (category.equals(nav.snacksAndBrandedFoodsCategory.getText())) {
+        //     action.moveToElement(nav.snacksAndBrandedFoodsCategory).build().perform();
+        //     System.out.println("main category--->" + category);
 
-        else if (category.equals(nav.beautyAndHygieneCategory.getText())) {
-            System.out.println("main category--->" + category);
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.breakFastCereal.isDisplayed());
+        //         Assert.assertTrue(nav.noodlePastaVermicilli.isDisplayed());
+        //         Assert.assertTrue(nav.buiscuitsAndCookies.isDisplayed());
+        //         Assert.assertTrue(nav.frozenVegiesSnacks.isDisplayed());
+        //         Assert.assertTrue(nav.snaksAndNamkeen.isDisplayed());
+        //         Assert.assertTrue(nav.spreadsSaucesKetchup.isDisplayed());
+        //         Assert.assertTrue(nav.readyToCookAndEat.isDisplayed());
+        //         Assert.assertTrue(nav.chocolatesAndCandies.isDisplayed());
+        //         Assert.assertTrue(nav.picklesAndChutney.isDisplayed());
+        //         Assert.assertTrue(nav.indianMithai.isDisplayed());
 
-            action.moveToElement(nav.beautyAndHygieneCategory).build().perform();
-            for (int i = 0; i < li.length; i++) {
-                System.out.println("subcategory-----" + li[i]);
-                Assert.assertTrue(nav.oralCare.isDisplayed());
-                Assert.assertTrue(nav.feminineHygiene.isDisplayed());
-                Assert.assertTrue(nav.bathAndHandWash.isDisplayed());
-                Assert.assertTrue(nav.hairCare.isDisplayed());
-                Assert.assertTrue(nav.healthAndMedicine.isDisplayed());
-                Assert.assertTrue(nav.mensGrooming.isDisplayed());
-                Assert.assertTrue(nav.skinCare.isDisplayed());
-                Assert.assertTrue(nav.makeup.isDisplayed());
-                Assert.assertTrue(nav.fragrancesAndDeos.isDisplayed());
+        //     }
+        // }
 
-            }
-        }
+        // else if (category.equals(nav.beautyAndHygieneCategory.getText())) {
+        //     System.out.println("main category--->" + category);
+
+        //     action.moveToElement(nav.beautyAndHygieneCategory).build().perform();
+        //     for (int i = 0; i < li.length; i++) {
+        //         System.out.println("subcategory-----" + li[i]);
+        //         Assert.assertTrue(nav.oralCare.isDisplayed());
+        //         Assert.assertTrue(nav.feminineHygiene.isDisplayed());
+        //         Assert.assertTrue(nav.bathAndHandWash.isDisplayed());
+        //         Assert.assertTrue(nav.hairCare.isDisplayed());
+        //         Assert.assertTrue(nav.healthAndMedicine.isDisplayed());
+        //         Assert.assertTrue(nav.mensGrooming.isDisplayed());
+        //         Assert.assertTrue(nav.skinCare.isDisplayed());
+        //         Assert.assertTrue(nav.makeup.isDisplayed());
+        //         Assert.assertTrue(nav.fragrancesAndDeos.isDisplayed());
+
+        //     }
+        // }
 
     }
 

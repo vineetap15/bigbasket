@@ -17,7 +17,7 @@ public class CategoryNav {
     WebElement shopByCategory;
 
     //------------------Main Categories-------------------------------------------------
-
+  
     public @FindBy(css = "div#navbar li[data-submenu-id*=fruits-vegetables]")
     WebElement fruitsAndVegetableCategory;
 

@@ -23,18 +23,26 @@ Scenario:
     |View All|
  
 @checkPresenceOfSubCategories
-Scenario Outline:
-	Then User should view the corresponding list of "<First_Sub_Category>" under "<main_Category>"
+Scenario:
+	Then User should view the corresponding list of First_Sub_Category under main_Category
+    |freshVegiesOption|
+    |herbsAndSeasoning|
+    |freshFruitsOption|
+    |cutsAndSprouts|
+    |exoticFruitsAndVegies|
+    |organicFruitsAndVegies|
+    |flowerBouquetsBunches|
+
     
 
-     Examples: 
-    |main_Category				|First_Sub_Category|		
-    |Fruits & Vegetables		|Fresh Vegetables;Herbs & Seasonings;Fresh Fruits;Cuts & Sprouts;Exotic Fruits & Veggies;Organic Fruits & Vegetables;Flower Bouquets,Bunches|	
-	|Foodgrains, Oil & Masala	|Atta,Flours & Sooji;Rice & Rice Products;Dals & Pulses;Organic Staples;Salt,Sugar & Jaggery;Edible Oils & Ghee;Masalas & Spices;Dry Fruits|
-	|Bakery, Cakes & Dairy		|Dairy;Breads & Buns;Cookies, Rusk & Khari;Gourmet Breads;Bakery Snacks;Ice Creams & Desserts;Cakes & Pastries|
-    |Beverages                  |Water;Health Drink, Supplement;Tea;Energy & Soft Drinks;Coffee;Fruit Juices & Drinks|
-    |Snacks & Branded Foods     |Breakfast Cereals;Noodle, Pasta, Vermicelli;Biscuits & Cookies;Frozen Veggies & Snacks;Snacks & Namkeen;Spreads, Sauces, Ketchup;Ready To Cook & Eat;Chocolates & Candies;Pickles & Chutney;Indian Mithai|
-    |Beauty & Hygiene           |Oral Care;Feminine Hygiene;Bath & Hand Wash;Hair Care;Health & Medicine;Men's Grooming;Skin Care;Makeup;Fragrances & Deos|
+    #  Examples: 
+    #  |main_Category				|First_Sub_Category|		
+    # #|Fruits & Vegetables		|herbsAndSeasoning|	
+	# #  |Foodgrains, Oil & Masala	|Atta,Flours & Sooji;Rice & Rice Products;Dals & Pulses;Organic Staples;Salt,Sugar & Jaggery;Edible Oils & Ghee;Masalas & Spices;Dry Fruits|
+	# #  |Bakery, Cakes & Dairy		|Dairy;Breads & Buns;Cookies, Rusk & Khari;Gourmet Breads;Bakery Snacks;Ice Creams & Desserts;Cakes & Pastries|
+    # #  |Beverages                  |Water;Health Drink, Supplement;Tea;Energy & Soft Drinks;Coffee;Fruit Juices & Drinks|
+    # #  |Snacks & Branded Foods     |Breakfast Cereals;Noodle, Pasta, Vermicelli;Biscuits & Cookies;Frozen Veggies & Snacks;Snacks & Namkeen;Spreads, Sauces, Ketchup;Ready To Cook & Eat;Chocolates & Candies;Pickles & Chutney;Indian Mithai|
+    # #  |Beauty & Hygiene           |Oral Care;Feminine Hygiene;Bath & Hand Wash;Hair Care;Health & Medicine;Men's Grooming;Skin Care;Makeup;Fragrances & Deos|
     
 
 
