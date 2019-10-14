@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
     features = "src/test/resources/features", 
     glue = "bigbasket/steps", 
     plugin = {"pretty", "json:target/cucumber.json" }, 
-    tags = { "@checkPresenceOfSubCategories" }
+    tags = { "@checkMainCategories" }
     )
 
 public class Runner extends AbstractTestNGCucumberTests {

@@ -1,33 +1,38 @@
 package bigbasket.utils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class checkNavCategories {
-    String mainCategory=null;
-    ArrayList<WebElement> MaincategoryList;
+    WebElement mainCategory=null;
+    Map<String,WebElement> MaincategoryList;
     Map<String,WebElement> subCategoryList;
-    
 
-    public checkNavCategories(ArrayList<WebElement> mainCategorieslocators){
+    public checkNavCategories(){
+
+    }
+   
+
+    public checkNavCategories(ArrayList<WebElement> mainCategorieslocators,List<String> mainCategoryName){
         for(int i=0;i<mainCategorieslocators.size();i++){
-            System.out.println("category-->" +mainCategorieslocators.get(i).getText());
+            
             Assert.assertTrue(mainCategorieslocators.get(i).isDisplayed());
+            Assert.assertEquals(mainCategorieslocators.get(i).getText(), mainCategoryName.get(i));
         }
 
     }
 
     public checkNavCategories(WebElement mainCategory,List<WebElement> subCategoryLists,Actions action){
-        action.moveToElement(mainCategory).build().perform();
-        System.out.println("category-->" +mainCategory.getText());
-
+        
         for(int i=0;i<subCategoryLists.size();i++){
-            System.out.println("sub category-->" +subCategoryLists.get(i).getText());
+
             Assert.assertTrue(subCategoryLists.get(i).isDisplayed());
 
         }

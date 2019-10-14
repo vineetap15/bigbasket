@@ -46,20 +46,20 @@ Scenario:
     
 
 
-@checkPresenceOf2ndLevelSubCategories
-Scenario Outline:
-    When User mousehover a main Category "<main_Category>"
-    Then User mousehover a sub Category "<First_Sub_Category>" and view its next level sub categories "<Second_Sub_Category>"
+# @checkPresenceOf2ndLevelSubCategories
+# Scenario Outline:
+#     When User mousehover a main Category "<main_Category>"
+#     Then User mousehover a sub Category "<First_Sub_Category>" and view its next level sub categories "<Second_Sub_Category>"
 
-    Examples: 
-    |main_Category				|First_Sub_Category|Second_Sub_Category		|
-    |Fruits & Vegetables		|Fresh Vegetables|Potato, Onion & Tomato;Cucumber & Capsicum;Root Vegetables;Cabbage & Cauliflower;Leafy Vegetables;Beans, Brinjals & Okra;Gourd, Pumpkin, Drumstick;Specialty|
-    |Fruits & Vegetables		|Herbs & Seasonings|Lemon, Ginger & Garlic;Indian & Exotic Herbs|
-    |Fruits & Vegetables		|Fresh Fruits|Banana, Sapota & Papaya;Apples & Pomegranate;Kiwi, Melon, Citrus Fruit;Seasonal Fruits;Mangoes;Fruit Baskets|
-    |Fruits & Vegetables		|Cuts & Sprouts|Cut Fruit, Tender Coconut;Cut & Peeled Veggies;Fresh Salads & Sprouts;Recipe Packs|
-    |Fruits & Vegetables		|Exotic Fruits & Veggies|Exotic Vegetables;Exotic Fruits|
-    |Fruits & Vegetables		|Organic Fruits & Vegetables|Organic Vegetables;Organic Fruits|
-    |Fruits & Vegetables		|Flower Bouquets, Bunches|Marigold;Other Flowers;Roses|
+#     Examples: 
+#     |main_Category				|First_Sub_Category|Second_Sub_Category		|
+#     |Fruits & Vegetables		|Fresh Vegetables|Potato, Onion & Tomato;Cucumber & Capsicum;Root Vegetables;Cabbage & Cauliflower;Leafy Vegetables;Beans, Brinjals & Okra;Gourd, Pumpkin, Drumstick;Specialty|
+#     |Fruits & Vegetables		|Herbs & Seasonings|Lemon, Ginger & Garlic;Indian & Exotic Herbs|
+#     |Fruits & Vegetables		|Fresh Fruits|Banana, Sapota & Papaya;Apples & Pomegranate;Kiwi, Melon, Citrus Fruit;Seasonal Fruits;Mangoes;Fruit Baskets|
+#     |Fruits & Vegetables		|Cuts & Sprouts|Cut Fruit, Tender Coconut;Cut & Peeled Veggies;Fresh Salads & Sprouts;Recipe Packs|
+#     |Fruits & Vegetables		|Exotic Fruits & Veggies|Exotic Vegetables;Exotic Fruits|
+#     |Fruits & Vegetables		|Organic Fruits & Vegetables|Organic Vegetables;Organic Fruits|
+#     |Fruits & Vegetables		|Flower Bouquets, Bunches|Marigold;Other Flowers;Roses|
     # |Foodgrains, Oil & Masala	|Atta,Flours & Sooji|Atta Whole Wheat;Sooji, Maida & Besan;Rice & Other Flours|
     # |Foodgrains, Oil & Masala	|Rice & Rice Products|Raw Rice;Poha, Sabudana & Murmura;Basmati Rice;Boiled & Steam Rice|	
 	# |Foodgrains, Oil & Masala	|Dals & Pulses|Toor, Channa & Moong Dal;Cereals & Millets;Urad & Other Dals|

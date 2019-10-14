@@ -7,6 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CategoryNav {
     WebDriver driver;
+
+    public CategoryNav(){
+       
+    }
     
     public CategoryNav(WebDriver driver){
         this.driver = driver;
