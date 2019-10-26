@@ -23,35 +23,43 @@ Scenario:
     |View All|
  
 @checkPresenceOfSubCategories
-Scenario Outline:
-	Then User should view the corresponding list of "<First_Sub_Category>" under "<main_Category>"
+Scenario:
+	Then User should view the corresponding list of First_Sub_Category under main_Category
+    |freshVegiesOption|
+    |herbsAndSeasoning|
+    |freshFruitsOption|
+    |cutsAndSprouts|
+    |exoticFruitsAndVegies|
+    |organicFruitsAndVegies|
+    |flowerBouquetsBunches|
+
     
 
-     Examples: 
-    |main_Category				|First_Sub_Category|		
-    |Fruits & Vegetables		|Fresh Vegetables;Herbs & Seasonings;Fresh Fruits;Cuts & Sprouts;Exotic Fruits & Veggies;Organic Fruits & Vegetables;Flower Bouquets,Bunches|	
-	|Foodgrains, Oil & Masala	|Atta,Flours & Sooji;Rice & Rice Products;Dals & Pulses;Organic Staples;Salt,Sugar & Jaggery;Edible Oils & Ghee;Masalas & Spices;Dry Fruits|
-	|Bakery, Cakes & Dairy		|Dairy;Breads & Buns;Cookies, Rusk & Khari;Gourmet Breads;Bakery Snacks;Ice Creams & Desserts;Cakes & Pastries|
-    |Beverages                  |Water;Health Drink, Supplement;Tea;Energy & Soft Drinks;Coffee;Fruit Juices & Drinks|
-    |Snacks & Branded Foods     |Breakfast Cereals;Noodle, Pasta, Vermicelli;Biscuits & Cookies;Frozen Veggies & Snacks;Snacks & Namkeen;Spreads, Sauces, Ketchup;Ready To Cook & Eat;Chocolates & Candies;Pickles & Chutney;Indian Mithai|
-    |Beauty & Hygiene           |Oral Care;Feminine Hygiene;Bath & Hand Wash;Hair Care;Health & Medicine;Men's Grooming;Skin Care;Makeup;Fragrances & Deos|
+    #  Examples: 
+    #  |main_Category				|First_Sub_Category|		
+    # #|Fruits & Vegetables		|herbsAndSeasoning|	
+	# #  |Foodgrains, Oil & Masala	|Atta,Flours & Sooji;Rice & Rice Products;Dals & Pulses;Organic Staples;Salt,Sugar & Jaggery;Edible Oils & Ghee;Masalas & Spices;Dry Fruits|
+	# #  |Bakery, Cakes & Dairy		|Dairy;Breads & Buns;Cookies, Rusk & Khari;Gourmet Breads;Bakery Snacks;Ice Creams & Desserts;Cakes & Pastries|
+    # #  |Beverages                  |Water;Health Drink, Supplement;Tea;Energy & Soft Drinks;Coffee;Fruit Juices & Drinks|
+    # #  |Snacks & Branded Foods     |Breakfast Cereals;Noodle, Pasta, Vermicelli;Biscuits & Cookies;Frozen Veggies & Snacks;Snacks & Namkeen;Spreads, Sauces, Ketchup;Ready To Cook & Eat;Chocolates & Candies;Pickles & Chutney;Indian Mithai|
+    # #  |Beauty & Hygiene           |Oral Care;Feminine Hygiene;Bath & Hand Wash;Hair Care;Health & Medicine;Men's Grooming;Skin Care;Makeup;Fragrances & Deos|
     
 
 
-@checkPresenceOf2ndLevelSubCategories
-Scenario Outline:
-    When User mousehover a main Category "<main_Category>"
-    Then User mousehover a sub Category "<First_Sub_Category>" and view its next level sub categories "<Second_Sub_Category>"
+# @checkPresenceOf2ndLevelSubCategories
+# Scenario Outline:
+#     When User mousehover a main Category "<main_Category>"
+#     Then User mousehover a sub Category "<First_Sub_Category>" and view its next level sub categories "<Second_Sub_Category>"
 
-    Examples: 
-    |main_Category				|First_Sub_Category|Second_Sub_Category		|
-    |Fruits & Vegetables		|Fresh Vegetables|Potato, Onion & Tomato;Cucumber & Capsicum;Root Vegetables;Cabbage & Cauliflower;Leafy Vegetables;Beans, Brinjals & Okra;Gourd, Pumpkin, Drumstick;Specialty|
-    |Fruits & Vegetables		|Herbs & Seasonings|Lemon, Ginger & Garlic;Indian & Exotic Herbs|
-    |Fruits & Vegetables		|Fresh Fruits|Banana, Sapota & Papaya;Apples & Pomegranate;Kiwi, Melon, Citrus Fruit;Seasonal Fruits;Mangoes;Fruit Baskets|
-    |Fruits & Vegetables		|Cuts & Sprouts|Cut Fruit, Tender Coconut;Cut & Peeled Veggies;Fresh Salads & Sprouts;Recipe Packs|
-    |Fruits & Vegetables		|Exotic Fruits & Veggies|Exotic Vegetables;Exotic Fruits|
-    |Fruits & Vegetables		|Organic Fruits & Vegetables|Organic Vegetables;Organic Fruits|
-    |Fruits & Vegetables		|Flower Bouquets, Bunches|Marigold;Other Flowers;Roses|
+#     Examples: 
+#     |main_Category				|First_Sub_Category|Second_Sub_Category		|
+#     |Fruits & Vegetables		|Fresh Vegetables|Potato, Onion & Tomato;Cucumber & Capsicum;Root Vegetables;Cabbage & Cauliflower;Leafy Vegetables;Beans, Brinjals & Okra;Gourd, Pumpkin, Drumstick;Specialty|
+#     |Fruits & Vegetables		|Herbs & Seasonings|Lemon, Ginger & Garlic;Indian & Exotic Herbs|
+#     |Fruits & Vegetables		|Fresh Fruits|Banana, Sapota & Papaya;Apples & Pomegranate;Kiwi, Melon, Citrus Fruit;Seasonal Fruits;Mangoes;Fruit Baskets|
+#     |Fruits & Vegetables		|Cuts & Sprouts|Cut Fruit, Tender Coconut;Cut & Peeled Veggies;Fresh Salads & Sprouts;Recipe Packs|
+#     |Fruits & Vegetables		|Exotic Fruits & Veggies|Exotic Vegetables;Exotic Fruits|
+#     |Fruits & Vegetables		|Organic Fruits & Vegetables|Organic Vegetables;Organic Fruits|
+#     |Fruits & Vegetables		|Flower Bouquets, Bunches|Marigold;Other Flowers;Roses|
     # |Foodgrains, Oil & Masala	|Atta,Flours & Sooji|Atta Whole Wheat;Sooji, Maida & Besan;Rice & Other Flours|
     # |Foodgrains, Oil & Masala	|Rice & Rice Products|Raw Rice;Poha, Sabudana & Murmura;Basmati Rice;Boiled & Steam Rice|	
 	# |Foodgrains, Oil & Masala	|Dals & Pulses|Toor, Channa & Moong Dal;Cereals & Millets;Urad & Other Dals|

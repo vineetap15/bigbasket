@@ -7,6 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CategoryNav {
     WebDriver driver;
+
+    public CategoryNav(){
+       
+    }
     
     public CategoryNav(WebDriver driver){
         this.driver = driver;
@@ -17,7 +21,7 @@ public class CategoryNav {
     WebElement shopByCategory;
 
     //------------------Main Categories-------------------------------------------------
-
+  
     public @FindBy(css = "div#navbar li[data-submenu-id*=fruits-vegetables]")
     WebElement fruitsAndVegetableCategory;
 
